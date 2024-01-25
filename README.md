@@ -5,6 +5,7 @@
 - [Problem Statement](#Problem-Statement)
 - [Entity Relationship Diagram](#Entity-Relationship-Diagram)
 - [Case Study Questions](#Case-Study-Questions)
+- [Solution](#Solution-with-logic) 
 
 
 

@@ -1,4 +1,4 @@
 # 🍜 Case Study #1: Danny's Diner
-<img src="https://user-images.githubusercontent.com/81607668/127727503-9d9e7a25-93cb-4f95-8bd0-20b87cb4b459.png" alt="Image" width="500" height="520">
+![Screenshot (840)](https://github.com/Mansiguptaa13/-Case-Study-1-Danny-s-Diner/assets/109064543/156763e9-a056-47cb-ab4b-0241c8cd1906)
 
 

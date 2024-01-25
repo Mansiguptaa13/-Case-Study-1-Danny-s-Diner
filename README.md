@@ -1,1 +1,1 @@
-# 8weeksqlchallenge-Case-Study-1-Dannys-Diner
+🍜 Case Study #1: Danny's Diner

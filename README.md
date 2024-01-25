@@ -21,7 +21,6 @@ Danny wants to use the data to answer a few simple questions about his customers
 <details>
 <summary>
 Click here for Questions...
-</summary>
 
 
 

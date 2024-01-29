@@ -36,8 +36,6 @@ Click here for Questions...
 </details>
 
 
-## Case Study Questions
-
 <details>
 <summary>
 Click here for Bonus Questions....

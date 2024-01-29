@@ -15,5 +15,13 @@ GROUP BY
 ORDER BY
   s.customer_id;
 ````
+#### Answer:
+| customer_id  | amount_spent |
+| -------------| ------------ | 
+|      A       |      76      | 
+|      B       |      74      | 
+|      C       |      36      | 
+
+
 
 

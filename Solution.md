@@ -101,17 +101,12 @@ LIMIT
 ````
 #### Answer:
 
-    SELECT m.product_name, count(m.product_name) as "Number of Items Ordered"
-    FROM dannys_diner.menu m 
-    join dannys_diner.sales s
-    on m.product_id = s.product_id
-    group BY m.product_name
-    order by count(m.product_name) desc
-    Limit 1;
-
 | product_name | Number of Items Ordered |
 | ------------ | ----------------------- |
 | ramen        | 8                       |
+
+- The most purchased item on the menu is ramen which is purchased 8 times.
+ Tasty...!!
 
 
 

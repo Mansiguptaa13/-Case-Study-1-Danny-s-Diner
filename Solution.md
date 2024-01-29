@@ -38,11 +38,17 @@ GROUP BY
 ORDER BY
   customer_id;
 ````
+#### Answer:
 | customer_id  | total_visits |
 | -------------| ------------ | 
 |      A       |      4       | 
 |      B       |      6       | 
 |      C       |      2       | 
+
+- Customer A visited the restaurant 4 times.
+- Customer B visited the restaurant 6 times.
+- Customer C visited the restaurant 2 times.
+
 
 
 

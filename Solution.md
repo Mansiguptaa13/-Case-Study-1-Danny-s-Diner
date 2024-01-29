@@ -22,6 +22,9 @@ ORDER BY
 |      B       |      74      | 
 |      C       |      36      | 
 
+- Customer A spent $76.
+- Customer B spent $74.
+- Customer C spent $36.
 
 
 

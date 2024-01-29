@@ -108,6 +108,94 @@ LIMIT
 - The most purchased item on the menu is ramen which is purchased 8 times.
  Tasty...!!
 
+#### 5. Which item was the most popular for each customer?
+````sql
+    WITH
+      preference_table AS (
+        SELECT
+          s.customer_id,
+          m.product_name,
+          count(m.product_name),
+          DENSE_RANK() OVER(
+            PARTITION BY s.customer_id
+            ORDER BY
+              count(m.product_name) DESC
+          ) AS Most_preferred
+        FROM
+          dannys_diner.menu m
+          JOIN dannys_diner.sales s ON m.product_id = s.product_id
+        GROUP BY
+          s.customer_id,
+          m.product_name
+        ORDER BY 
+          s.customer_id asc,
+          count(m.product_name) desc
+      )
+    SELECT
+      customer_id,
+      product_name
+    FROM
+      preference_table
+    WHERE
+      Most_preferred = 1
+    ORDER BY
+      customer_id;
+````
+#### Answer:
+
+| customer_id | product_name |
+| ----------- | ------------ |
+| A           | ramen        |
+| B           | ramen        |
+| B           | curry        |
+| B           | sushi        |
+| C           | ramen        |
+
+- Customer A's favourite item is ramen.
+- Customer B's favourite items are ramen, curry and sushi everything avaliable in the menu.
+  
+#### 6. Which item was purchased first by the customer after they became a member?  
+```` sql
+    WITH
+      first_item AS(
+        SELECT
+          distinct(m.product_name),
+          s.customer_id,
+          s.order_date,
+          mm.join_date,
+          DENSE_RANK() OVER(
+            PARTITION BY s.customer_id
+            ORDER BY
+              s.order_date
+          ) AS rank
+        FROM
+          dannys_diner.menu m
+          JOIN dannys_diner.sales s on m.product_id = s.product_id
+          JOIN dannys_diner.members mm on s.customer_id = mm.customer_id
+        WHERE
+          mm.join_date < s.order_date
+        ORDER BY
+          s.customer_id,
+          s.order_date
+      )
+    SELECT
+      customer_id,
+      order_date,
+      product_name
+    FROM
+      first_item
+    WHERE
+      rank = 1
+    ORDER BY
+      customer_id;
+````
+#### Answer:
+
+| customer_id | order_date               | product_name |
+| ----------- | ------------------------ | ------------ |
+| A           | 2021-01-10| ramen        |
+| B           | 2021-01-11 | sushi       |
+
 
 
 

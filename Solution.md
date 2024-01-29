@@ -199,6 +199,59 @@ LIMIT
 - Customer A's first ordered "curry" after joining membership.
 - Customer B's first ordered "sushi" after joining membership.
 
+#### 7. Which item was purchased just before the customer became a member?  
+```` sql
+    WITH
+      first_item AS(
+        SELECT
+          distinct(m.product_name),
+          s.customer_id,
+          s.order_date,
+          mm.join_date,
+          DENSE_RANK() OVER(
+            PARTITION BY s.customer_id
+            ORDER BY
+              s.order_date desc
+          ) as rank
+        FROM
+          dannys_diner.menu m
+          JOIN dannys_diner.sales s ON m.product_id = s.product_id
+          JOIN dannys_diner.members mm ON s.customer_id = mm.customer_id
+        WHERE
+          mm.join_date > s.order_date
+        ORDER BY
+          s.customer_id,
+          s.order_date
+      )
+    SELECT
+      customer_id,
+      order_date,
+      product_name
+    FROM
+      first_item
+    WHERE
+      rank = 1
+    ORDER BY
+      customer_id;
+
+#### Answer:
+
+| customer_id | order_date               | product_name |
+| ----------- | ------------------------ | ------------ |
+| A           | 2021-01-01 | curry        |
+| A           | 2021-01-01 | sushi        |
+| B           | 2021-01-04| sushi        |
+
+- Customer A's last order before becoming a member includes curry and sushi.
+- Customer B's last order before becoming a member is sushi.
+
+#### 7. What is the total items and amount spent for each member before they became a member?
+
+
+
+
+
+
 
 
 

@@ -196,8 +196,8 @@ LIMIT
 | A           | 2021-01-07 | curry        |
 | B           | 2021-01-11 | sushi       |
 
-- Customer A's first ordered curry after joining membership.
-- Customer B's first ordered sushi after joining membership.
+- Customer A's first ordered "curry" after joining membership.
+- Customer B's first ordered "sushi" after joining membership.
 
 
 

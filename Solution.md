@@ -84,4 +84,37 @@ GROUP BY customer_id, product_name;
 - Customer B purchased curry for the first time.
 - Customer C purchased ramen for the first time.
 
+#### 4.What is the most purchased item on the menu and how many times was it purchased by all customers??  
+````sql
+SELECT
+  m.product_name,
+  count(m.product_name) as "Number of Items Ordered"
+FROM
+  dannys_diner.menu m
+  join dannys_diner.sales s on m.product_id = s.product_id
+GROUP BY
+  m.product_name
+ORDER by
+  count(m.product_name) desc
+LIMIT
+  1;
+````
+#### Answer:
+
+    SELECT m.product_name, count(m.product_name) as "Number of Items Ordered"
+    FROM dannys_diner.menu m 
+    join dannys_diner.sales s
+    on m.product_id = s.product_id
+    group BY m.product_name
+    order by count(m.product_name) desc
+    Limit 1;
+
+| product_name | Number of Items Ordered |
+| ------------ | ----------------------- |
+| ramen        | 8                       |
+
+
+
+
+
 

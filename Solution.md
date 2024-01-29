@@ -80,8 +80,8 @@ GROUP BY customer_id, product_name;
 | B           | curry        |
 | C           | ramen        |
 
-- Customer A purchased are curry and sushi for the first time.
-- Customer B purchased order is curry for the first time.
-- Customer C purchased order is ramen for the first time.
+- Customer A purchased curry and sushi for the first time.
+- Customer B purchased curry for the first time.
+- Customer C purchased ramen for the first time.
 
 

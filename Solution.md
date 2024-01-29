@@ -26,5 +26,23 @@ ORDER BY
 - Customer B spent $74.
 - Customer C spent $36.
 
+#### 2. How many days has each customer visited the restaurant?  
+````sql
+SELECT
+  customer_id,
+  count(distinct(order_date)) as total_visits
+FROM
+  dannys_diner.sales
+GROUP BY
+  customer_id
+ORDER BY
+  customer_id;
+````
+| customer_id  | total_visits |
+| -------------| ------------ | 
+|      A       |      4       | 
+|      B       |      6       | 
+|      C       |      2       | 
+
 
 

@@ -35,6 +35,19 @@ Click here for Questions...
 10- In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi  how many points do customer A and B have at the end of January?  
 </details>
 
+
+## Case Study Questions
+
+<details>
+<summary>
+Click here for Bonus Questions....
+</summary>
+
+#### 1. Join All The Things
+The following questions are related creating basic data tables that Danny and his team can use to quickly derive insights without needing to join the underlying tables using SQL.
+
+#### 2. Rank All The Things
+Danny also requires further information about the ranking of customer products, but he purposely does not need the ranking for non-member purchases so he expects null ranking values for the records when customers are not yet part of the loyalty program.
 ***
 
 

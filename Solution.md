@@ -338,6 +338,48 @@ GROUP BY sales.customer_id;
 - Total points earned by Customer B is 940.
   
 
+## Bonus Questions Solution
+#### 1. The following questions are related creating basic data tables that Danny and his team can use to quickly derive insights without needing to join the underlying tables using SQL.
+````sql
+SELECT
+  s.customer_id,
+  s.order_date,
+  mn.product_name,
+  mn.price,
+  CASE
+    WHEN s.order_date >= mb.join_date THEN 'Y'
+    ELSE 'N'
+  END AS member
+FROM
+  dannys_diner.sales s
+  LEFT JOIN dannys_diner.menu mn ON mn.product_id = s.product_id
+  LEFT JOIN dannys_diner.members mb ON mb.customer_id = s.customer_id
+ORDER BY
+  s.customer_id,
+  s.order_date;
+````
+
+#### Answer:
+
+| customer_id | order_date               | product_name | price | member |
+| ----------- | ------------------------ | ------------ | ----- | ------ |
+| A           | 2021-01-01 | sushi        | 10    | N      |
+| A           | 2021-01-01 | curry        | 15    | N      |
+| A           | 2021-01-01 | curry        | 15    | N      |
+| A           | 2021-01-07 | curry        | 15    | Y      |
+| A           | 2021-01-10| ramen        | 12    | Y      |
+| A           | 2021-01-11| ramen        | 12    | Y      |
+| A           | 2021-01-11| ramen        | 12    | Y      |
+| B           | 2021-01-01| curry        | 15    | N      |
+| B           | 2021-01-02 | curry        | 15    | N      |
+| B           | 2021-01-04 | sushi        | 10    | N      |
+| B           | 2021-01-11 | sushi        | 10    | Y      |
+| B           | 2021-01-16| ramen        | 12    | Y      |
+| B           | 2021-02-01 | ramen        | 12    | Y      |
+| C           | 2021-01-01 | ramen        | 12    | N      |
+| C           | 2021-01-01 | ramen        | 12    | N      |
+| C           | 2021-01-07 | ramen        | 12    | N      |
+
 
 
 
